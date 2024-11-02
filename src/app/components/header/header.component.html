@@ -1,0 +1,14 @@
+<main>
+    <header class="header-container">
+        <h1 class="header-title">PARKING APP</h1>
+        <div class="manageAccount">
+            <a href="#" (click)="abrirModal()" class="accountLink">Mi cuenta</a>
+            <a class="closeSesion" [routerLink]="['/login']">Cerrar sesión</a>
+            <a [routerLink]="['/estado-cocheras']" class="accountLink">Estado cocheras</a>
+            @if(esAdmin){
+                <a class="reports accountLink" [routerLink]="['/reportes']">Reportes</a>
+            }
+        </div>
+    </header>
+</main>
+

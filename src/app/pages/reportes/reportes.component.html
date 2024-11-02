@@ -1,0 +1,27 @@
+<main>
+  <app-header></app-header>
+
+  <div class="reporte-container">
+    <h2 class="reporte-titulo">Reporte de Estacionamientos</h2>
+
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th class="columna-nro">N°</th>
+          <th class="columna-mes">Mes</th>
+          <th class="columna-usos">Usos</th>
+          <th class="columna-cobrado">Cobrado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reporte of reporteEstacionamientos; index as i" class="fila-reporte">
+          <td class="columna-nro">{{ i + 1 }}</td>
+          <td class="columna-mes">{{ reporte.mes }}</td>
+          <td class="columna-usos">{{ reporte.usos }}</td>
+          <td class="columna-cobrado">{{ reporte.cobrado | currency:'ARS' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+

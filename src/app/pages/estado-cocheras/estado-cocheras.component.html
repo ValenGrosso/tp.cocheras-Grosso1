@@ -1,0 +1,54 @@
+<main>
+  <app-header></app-header>
+
+  <div class="tabla-contenedor">
+      <table class="tabla">
+          <thead>
+              <tr>
+                  <th>Nro</th>
+                  <th>Patente</th>
+                  <th>Ingreso</th>
+                  <th>Acciones</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let fila of filas; index as i">
+                  <td>{{ fila.descripcion || 'Sin nombre' }}</td>
+                  <td *ngIf="fila.patente; else disponibleText">
+                      <span (click)="cerrarEstacionamiento(fila.patente)" class="patenteClickable">
+                          {{ fila.patente }}
+                      </span>
+                  </td>
+                  <ng-template #disponibleText>
+                      <td>
+                          <button
+                              (click)="abrirModalNuevoEstacionamiento(fila.id)"
+                              [disabled]="fila.deshabilitada || fila.activo"
+                              class="disponibleButton"
+                              [ngClass]="{ disponible: !fila.deshabilitada && !fila.patente, ocupado: fila.deshabilitada }"
+                          >
+                              Disponible
+                          </button>
+                      </td>
+                  </ng-template>
+                  <td>{{ fila.horaIngreso }}</td>
+                  <td>
+                      <button (click)="eliminarFila(fila.id)" class="actionButton deleteFila">
+                          <img src="delete-icon.png" alt="Eliminar">
+                      </button>
+                      <button (click)="deshabilitarCochera(fila.id)" class="actionButton disableFila">
+                          <img src="disable-icon.png" alt="Deshabilitar">
+                      </button>
+                      <button (click)="habilitarCochera(fila.id)" class="actionButton enableFila">
+                          <img src="enable-icon.png" alt="Habilitar">
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <div class="contenedor-boton">
+      <button (click)="agregarFila()" class="agregarFila">Agregar fila</button>
+  </div>
+</main>

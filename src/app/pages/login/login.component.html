@@ -1,0 +1,25 @@
+<main>
+    <div class="contenedor">
+      <div class="contenedor-izquierdo">
+        <img src="https://autoturnonline.com/wp-content/uploads/2022/12/page-parking-lot.png" alt="Parking Lot" />
+        <div class="overlay">
+          <h1 class="titulo">BIENVENIDOS A PARKING APP</h1>
+        </div>
+      </div>
+      <div class="contenedor-derecho">
+        <form>
+          <div class="sesionButtons">
+            <input class="loginButton" type="text" [(ngModel)]="datosLogin.username" name="usuario" placeholder="Usuario...">
+            <input type="password" [(ngModel)]="datosLogin.password" name="password" placeholder="Contraseña...">
+          </div>
+          <button type="button" class="loginSesion" (click)="Login()">Iniciar sesión</button>
+        </form>
+        <p class="registerButton">¿Eres nuevo?<a class="registerButton2" href="#">¡Regístrate por aquí!</a></p>
+      </div>
+    </div>
+  </main>
+  
+  
+  
+  
+
